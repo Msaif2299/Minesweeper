@@ -8,8 +8,9 @@ public class game {
 	public static char[][] state;
 	public static boolean[][] flaggedMines;
 	public game(int mines, int dim) {
-		game.state = this.createGame(mines, dim);
+		game.state = game.createGame(mines, dim);
 	}
+	
 	ArrayList<Pair<Integer, Integer>> neighbors(char[][] board, int x, int y, boolean[][] visited){
         int posx[] = {x, x-1, x+1};
         int posy[] = {y, y-1, y+1};
@@ -59,7 +60,7 @@ public class game {
             dfs(board, click[0], click[1], visited);
         return board;
     }
-    public char[][] createGame(int mines, int dim){
+    public static char[][] createGame(int mines, int dim){
     	char[][] board = new char[dim][];
     	game.flaggedMines = new boolean[dim][];
     	for(int i = 0; i < dim; i++) {
